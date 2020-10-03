@@ -1,13 +1,20 @@
+var fileControl = require('../module/fileControl');
+
 module.exports = function(app){
+	//to give readdir.js 
 	app.get('/', function(req, res){
-		res.render('index.html')
+		fileControl.readFilelist(req, res);
 	});
 	
-	app.get('/contact', (req, res) =>{
-		res.render('contact.html')
+	app.get('/create', (req,res) => {
+		create();
 	});
 
-	app.get('/list', (req,res) =>{
-		res.render('list.html')
+	app.get('/contact', (req, res) => {
+		res.render('contact')
+	});
+
+	app.get('/list', (req,res) => {
+		res.render('list')
 	});
 }
